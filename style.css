@@ -64,3 +64,27 @@ body {
     border-radius: 50%;
     background: #5f7a61;
 }
+
+.song-slider {
+    width: 100%;
+    position: relative;
+
+    /*estilo da barra de progresso da input*/
+    .seek-bar {
+        -webkit-appearance: none;
+        width: 100%;
+        height: 5px;
+        border-radius: 10px;
+        background: #7fc8a9;
+        overflow: hidden;
+        cursor: pointer;
+    }
+
+    /*estilo do ponteiro do input range*/
+    .seek-bar::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 1px;
+        height: 20px;
+        box-shadow: -400px 0 0 400px #d5eebb;
+    }
+}
