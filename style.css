@@ -87,4 +87,84 @@ body {
         height: 20px;
         box-shadow: -400px 0 0 400px #d5eebb;
     }
+
+
+    /*estilo do tempo da musica*/
+    .current-time,
+    .song-duration {
+        font-size: 14px;
+    }
+
+    .song-duration {
+        position: absolute;
+        right: 0;
+    }
 }
+
+.controls {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+
+
+    .play-btn {
+        position: relative;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: #d5eebb;
+        cursor: pointer;
+        outline: none;
+        border: none;
+
+        & span {
+            position: absolute;
+            top: 50%;
+            left: 25%;
+            transform: translateY(-50%);
+            width: 10px;
+            height: 30px;
+            border-radius: 2px;
+            background-color: #5f7a61;
+            transition: .3s;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+
+        }
+
+        &.pause span:nth-child(1)  {
+            width: 35%;
+            left: 53%;
+            transform: translate(-50%, -50%);
+            border-radius: 0;
+            clip-path: polygon(0 0, 100% 50%, 100% 50%, 0% 100%);
+
+        }
+
+        & span:nth-child(2) {
+            left: 55%;
+            transform-origin: center;
+        }
+
+        &.pause span:nth-child(2) {
+            transform: translateY(-50%) scaleY(0);
+        }
+
+        &.pause {
+            animation: pulse 2s linear infinite;
+        }
+    }
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0;
+    }
+    50% {
+        box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.1);
+    }
+    100% {
+        box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.4);
+    }
+}   
