@@ -46,7 +46,7 @@ const setMusic = (i) => {
     }, 300)
 }
 
-setMusic(0)
+setMusic(5)
 
 
 //formatano o tempo de min segundos por minutos
@@ -62,3 +62,14 @@ const formatTime = (time) => {
     }
     return `${min} : ${sec}`;
 }
+
+
+setInterval(() => {
+    seekBar.value = music.currentTime;
+    currentTime.innerHTML = formatTime(music.currentTime);
+}, 500)
+
+
+seekBar.addEventListener('change', () => {
+    music.currentTime = seekBar.value;
+})

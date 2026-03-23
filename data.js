@@ -28,5 +28,12 @@ let songs = [
         path: 'musics/Song 5.mp3',
         artist: 'artist 5',
         cover: 'images/cover 5.png'
+    },{
+        name: 'Saf AF',
+        path: 'musics/Kee Nola.mp3',
+        artist: 'Kee Nola',
+        cover: 'images/cover 5.png'
     },
 ]
+
+
