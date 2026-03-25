@@ -37,7 +37,7 @@ const setMusic = (i) => {
 
     songName.innerHTML = song.name;
     artistName.innerHTML = song.artist;
-    disk.style.backgroundImage = `url(${song.cover})`;
+    disk.style.backgroundImage = `url('${song.cover}')`;
 
     currentTime.innerHTML = '00:00'
     setTimeout(() => {
@@ -63,13 +63,46 @@ const formatTime = (time) => {
     return `${min} : ${sec}`;
 }
 
-
+// seekbar
 setInterval(() => {
     seekBar.value = music.currentTime;
     currentTime.innerHTML = formatTime(music.currentTime);
+    if (Math.floor(music.currentTime) == Math.floor(seekBar.max)) {
+        forwardBtn.click();
+    }
 }, 500)
 
 
 seekBar.addEventListener('change', () => {
     music.currentTime = seekBar.value;
+})
+
+
+const playMusic = () => {
+    music.play();
+    playBtn.classList.remove('pause');
+    disk.classList.add('play');
+}
+//forwards and backwards buttons action
+
+forwardBtn.addEventListener('click', () => {
+    if(currentMusic >= songs.length - 1) {
+        currentMusic = 0;
+    } else {
+        currentMusic++;
+    }
+    setMusic(currentMusic)
+    playMusic()
+})
+
+backwardBtn.addEventListener('click', () => {
+    if(currentMusic <= 0) {
+        currentMusic = songs.length;
+    } else {
+        currentMusic--;
+    }
+    
+
+    setMusic(currentMusic);
+    playMusic();
 })
